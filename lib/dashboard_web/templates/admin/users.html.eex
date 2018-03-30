@@ -1,48 +1,55 @@
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-	<div class="row">
-			<ol class="breadcrumb">
-				<li><a href="#">
-					<em class="fa fa-home"></em>
-				</a></li>
-				<li class="active">Admin / Users</li>
-			</ol>
-		</div><!--/.row-->
-		
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Users</h1>
+		<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+			<div class="row">
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">
+							<em class="fa fa-home"></em>
+						</a>
+					</li>
+					<li class="active">Admin / Users</li>
+				</ol>
+			</div><!--/.row-->
+
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header">Users</h1>
+				</div>
+			</div><!--/.row-->
+			
+			<div class="row">
+				<a href="/admin/users/new" class="col-xs-offset-2 col-xs-8 btn btn-primary">Novo Usuario<br/></a>
 			</div>
-		</div><!--/.row-->
-							<div class="row">
-					<a href="/admin/users/new" class="col-xs-offset-2 col-xs-8 btn btn-primary">Novo Usuario<br/></a>
-					
+			<br/>
+			<div class="row">
+				<div class="col-md-6 col-lg-12">
+					<div class="panel panel-default chat">
+						<div class="panel-heading">
+							Gerenciar Usuarios
+							<span class="pull-right clickable panel-toggle ">
+								<em class="fa fa-toggle-up"></em>
+							</span>
+						</div>
 					</div>
-					<br/>
-		<div class="row">
-			<div class="col-md-6 col-lg-12">
-				<div class="panel panel-default chat">
-					<div class="panel-heading">
-						Gerenciar Usuarios
-						
-						<span class="pull-right clickable panel-toggle "><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
 						<ul>
-					<%= for user <- @users do %>
-					
-							<li class="right clearfix"><span class="pull-right row">
-								</span>
+							<%= for user <- @users do %>
+
+							<li class="right clearfix">
+								<span class="pull-right row"></span>
 								<div class="chat-body clearfix">
-									<div class="header"><strong class="primary-font">Usuario</strong></div>
-									<p class ="col-xs-2" >Email : </p><p class="col-xs-4"><%= user.email %></p><a class="col-xs-2 col-xs-offset-1 btn btn-primary">Desativar</a><a href="/admin/users/modify?id=<%= user.id %>" class="col-xs-offset-1 col-xs-2 btn btn-primary">Alterar</a>
+								<div class="header">
+									<strong class="primary-font">Usuario</strong>
+								</div>
+									<p class ="col-xs-2" >Email : </p>
+									<p class="col-xs-4"><%= user.email %></p>
+									<a class="col-xs-2 col-xs-offset-1 btn btn-primary">Desativar</a>
+									<a href="/admin/users/modify?id=<%= user.id %>" class="col-xs-offset-1 col-xs-2 btn btn-primary">Alterar</a>
 								</div>
 							</li>
-					<% end %>
-					</ul>
+							<% end %>
+						</ul>
 					</div>
-
 				</div>
-				
 			</div><!--/.col-->
-
 		</div>
-	
+

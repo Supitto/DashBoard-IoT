@@ -1,38 +1,41 @@
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	<div class="row">
-			<ol class="breadcrumb">
-				<li><a href="#">
+		<ol class="breadcrumb">
+			<li>
+				<a href="#">
 					<em class="fa fa-home"></em>
-				</a></li>
-				<li class="active">Admin / Users / New</li>
-			</ol>
-		</div><!--/.row-->
-		
-		<div class="panel panel-default">
-					<div class="panel-heading">
-						Modificar Usuario
+				</a>
+			</li>
+			<li class="active">Admin / Users / New</li>
+		</ol>
+	</div><!--/.row-->
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Modificar Usuario
 		</div>
 		<div class="panel-body">
-        <%= form_for @changeset, "/admin/users/modify", fn f -> %>
-						<div class="row">
-							<p class="col-xs-2">ID -></p><%= text_input f, :id, [class: "col-xs-8", enable: "false"] %>
-						</div>
-						<br/>
-            <div class="row">
-                <p class="col-xs-2">Email: </p><%= text_input f, :email, [class: "col-xs-8"] %>
-            </div>
-							<br/>
-            <div class="row">
-                <p class="col-xs-2">Senha: </p><%= text_input f, :password, [class: "col-xs-8"] %>
-            </div>
-			<br/>
-            <div class="row">
-                <p class="col-xs-2">Role: </p><%= text_input f, :role, [class: "col-xs-8"] %>
-            </div>
-						<br/>
-			<div class="row">
-            <%= submit "Submit", [class: "btn btn-primary col-xs-offset-2 col-xs-4"] %> <a href="/admin/users" class="btn col-xs-offset-1 col-xs-3">Voltar</a>
-			</div>  
-        <% end %>   
+			<%= form_for @changeset, "/admin/users/modify", fn f -> %>
+		<div class="row">
+			<p class="col-xs-2">ID -></p><%= text_input f, :id, [class: "col-xs-8", enable: "false"] %>
 		</div>
+		<br/>
+		<div class="row">
+			<p class="col-xs-2">Email: </p><%= text_input f, :email, [class: "col-xs-8"] %>
 		</div>
+		<br/>
+		<div class="row">
+			<p class="col-xs-2">Senha: </p><%= text_input f, :password, [class: "col-xs-8"] %>
+		</div>
+		<br/>
+		<div class="row">
+			<p class="col-xs-2">Role: </p><%= text_input f, :role, [class: "col-xs-8"] %>
+		</div>
+		<br/>
+		<div class="row">
+			<%= submit "Submit", [class: "btn btn-primary col-xs-offset-2 col-xs-4"] %> <a href="/admin/users" class="btn col-xs-offset-1 col-xs-3">Voltar</a>
+		</div>  
+		<% end %>   
+		</div>
+	</div>
+</div>
