@@ -20,4 +20,8 @@ defmodule Dashboard.User do
     |> cast(attrs, [:name, :email, :hashed_password, :role, :active, :picture])
     |> validate_required([:name, :email, :hashed_password, :role, :active, :picture])
   end
+
+  def auth do
+    true
+  end
 end

@@ -13,7 +13,7 @@ defmodule DashboardWeb.LoginController do
   end
 
   def auth(conn, %{"login" => %{"email" => email, "password" => password}} = params) do
-    case Dashboard.User.auth(email,password) do
+    case Dashboard.User.auth do
       :auth_granted ->
 				conn
 				|> put_session(:role_group, 0)
