@@ -1,6 +1,22 @@
 defmodule DashboardWeb.AdminController do
   use DashboardWeb, :controller
 
+  plug :auth_admin
+  plug :put_menu
+
+  defp auth_admin(conn, params) do
+    case get_session(conn, :user_role) do
+      0 -> conn
+      _ -> redirect(conn, to: "/")  |> halt()
+    end
+  end
+
+  defp put_menu(conn, params) do
+    conn
+    |> put_layout({DashboardWeb.LayoutView, "menu.html"})
+  end
+
+
   def users(conn, _params) do
     render conn, "users.html", users:  Dashboard.Repo.all(Dashboard.User), menu: true
   end
