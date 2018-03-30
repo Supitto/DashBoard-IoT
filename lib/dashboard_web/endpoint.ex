@@ -3,7 +3,6 @@ defmodule DashboardWeb.Endpoint do
 
   #socket "/socket", DashboardWeb.UserSocket
 
-  socket "/sensor_stream", DashboardWeb.SensorSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
