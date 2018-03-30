@@ -6,12 +6,11 @@ defmodule DashboardWeb.LoginController do
   end
 
   def auth(conn, %{"login" => %{"email" => "admin@admin.admin", "password" => "Windows<3Linux"}}) do
-		IO.puts "admin login"
+    IO.puts "Admin modafoca"
 		conn
-		|> put_session(:role_group, 0)
+		|> put_session(:user_id, 0)
 		|> redirect(to: "/dashboard")
   end
-
   def auth(conn, %{"login" => %{"email" => email, "password" => password}} = params) do
     case Dashboard.User.auth do
       :auth_granted ->
@@ -26,7 +25,6 @@ defmodule DashboardWeb.LoginController do
         conn |> put_flash("error","Um erro não esperado aconteceu, estamos trabalhando para resolver") |> redirect(to: "/")
     end    
   end
-
 
   def recover_get(conn, _params) do
     render conn, "recovery.html", menu: false

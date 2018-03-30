@@ -1,8 +1,24 @@
 defmodule DashboardWeb.DashboardController do
   use DashboardWeb, :controller
 
+  plug :auth
+  plug :put_menu
+
+  defp auth(conn, params) do
+    case get_session(conn, :user_id) do
+      nil -> redirect(conn, to: "/")  |> halt()
+      _ -> conn
+    end
+  end
+
+  defp put_menu(conn, params) do
+    conn
+    |> put_layout({DashboardWeb.LayoutView, "menu.html"})
+  end
+
   def index(conn, _params) do
-  render conn, "index.html", menu: true
+    #IO.puts layout(conn)
+    render conn, "index.html"
   end
 
   def sensor(conn, _param) do
