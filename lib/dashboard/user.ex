@@ -22,6 +22,6 @@ defmodule Dashboard.User do
   end
 
   def auth do
-    true
+    :auth_granted
   end
 end
