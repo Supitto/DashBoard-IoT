@@ -8,7 +8,8 @@ defmodule DashboardWeb.LoginController do
   def auth(conn, %{"login" => %{"email" => "admin@admin.admin", "password" => "Windows<3Linux"}}) do
     IO.puts "Admin modafoca"
 		conn
-		|> put_session(:user_id, 0)
+    |> put_session(:user_id, -1)
+    |> put_session(:user_role, 0)
 		|> redirect(to: "/dashboard")
   end
   def auth(conn, %{"login" => %{"email" => email, "password" => password}} = params) do

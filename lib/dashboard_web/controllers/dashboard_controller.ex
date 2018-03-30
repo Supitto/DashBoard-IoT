@@ -17,7 +17,7 @@ defmodule DashboardWeb.DashboardController do
   end
 
   def index(conn, _params) do
-    #IO.puts layout(conn)
+    IO.puts get_session(conn,:user_group)
     render conn, "index.html"
   end
 
@@ -27,5 +27,11 @@ defmodule DashboardWeb.DashboardController do
 
   def sensor_especifico(conn, %{"id" => id}) do
     render conn, "sensor_especifico.html", sensor: %{id: "asda", nome: "sensor1", last_data: [1,2,3,4,5]}, menu: true
+  end
+
+  def logout(conn, _params) do
+    conn
+    |> clear_session
+    |> redirect(to: "/")
   end
 end
