@@ -121,6 +121,8 @@
         </li>
       </ul>
     </div><!--/.sidebar-->
+      <p class="alert alert-info" style="float:left" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" style="float:left" role="alert"><%= get_flash(@conn, :error) %></p>
     <%= render @view_module, @view_template, assigns %>
     <script src="<%= static_path(@conn, "/js/jquery-1.11.1.min.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/bootstrap.min.js") %>"></script>

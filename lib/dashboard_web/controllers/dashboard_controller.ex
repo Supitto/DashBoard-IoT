@@ -22,11 +22,11 @@ defmodule DashboardWeb.DashboardController do
   end
 
   def sensor(conn, _param) do
-    render conn, "sensor.html", sensores: [%{id: 32423524, nome: "sensor 1",valor: 10}], menu: true
+    render conn, "sensor.html", sensores: [%{id: 32423524, nome: "sensor 1",valor: 10}]
   end
 
   def sensor_especifico(conn, %{"id" => id}) do
-    render conn, "sensor_especifico.html", sensor: %{id: "asda", nome: "sensor1", last_data: [1,2,3,4,5]}, menu: true
+    render conn, "sensor_especifico.html", sensor: %{id: "asda", nome: "sensor1", last_data: [1,2,3,4,5]}
   end
 
   def logout(conn, _params) do

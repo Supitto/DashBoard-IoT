@@ -16,7 +16,8 @@ defmodule DashboardWeb.LoginController do
     case Dashboard.User.auth do
       :auth_granted ->
 				conn
-				|> put_session(:role_group, 0)
+        |> put_session(:role_group, 1)
+        |> put_session(:user_id, 1)
 				|> redirect(to: "/dashboard")
       :wrong_passwrod ->
         conn |> put_flash("error","A senha inserida esta incorreta") |> redirect(to: "/")
