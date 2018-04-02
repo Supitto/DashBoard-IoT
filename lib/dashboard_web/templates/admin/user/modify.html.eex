@@ -15,7 +15,7 @@
 			Modificar Usuario
 		</div>
 		<div class="panel-body">
-			<%= form_for @changeset, "/admin/users/modify", fn f -> %>
+			<%= form_for @changeset, user_path(@conn, :update, @id), fn f -> %>
 		<div class="row">
 			<p class="col-xs-2">ID -></p><%= text_input f, :id, [class: "col-xs-8", enable: "false"] %>
 		</div>

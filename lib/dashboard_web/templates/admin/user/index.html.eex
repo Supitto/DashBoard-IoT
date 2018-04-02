@@ -17,7 +17,7 @@
 			</div><!--/.row-->
 			
 			<div class="row">
-				<a href="/admin/users/new" class="col-xs-offset-2 col-xs-8 btn btn-primary">Novo Usuario<br/></a>
+				<a href="<%= user_path(@conn, :new) %>" class="col-xs-offset-2 col-xs-8 btn btn-primary">Novo Usuario<br/></a>
 			</div>
 			<br/>
 			<div class="row">
@@ -48,7 +48,7 @@
 									<% false -> %>
 										<a class="col-xs-2 col-xs-offset-1 btn btn-primary">Ativar</a>
 									<% end %>
-									<a href="/admin/users/modify?id=<%= user.id %>" class="col-xs-offset-1 col-xs-2 btn btn-primary">Alterar</a>
+									<a href="<%= user_path(@conn, :show, user.id) %>" class="col-xs-offset-1 col-xs-2 btn btn-primary">Alterar</a>
 								</div>
 							</li>
 							<% end %>

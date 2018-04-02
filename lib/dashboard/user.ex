@@ -18,7 +18,7 @@ defmodule Dashboard.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:name, :email, :hashed_password, :role, :active, :picture])
-    |> unique_constraint(:email,[ name: :users_email_index, error: "haaa"])
+    |> unique_constraint(:email)
     |> validate_required([:name, :email, :hashed_password, :role, :active, :picture])
   end
 

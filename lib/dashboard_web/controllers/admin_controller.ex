@@ -28,13 +28,14 @@ defmodule DashboardWeb.AdminController do
   def new_user_post(conn,  %{"user" => %{"email" => email, "password" => password, "role" => role}} = params) do
     user = Dashboard.User.changeset(%Dashboard.User{},%{email: email, hashed_password: (:crypto.hash(:sha256, password<>":"<>email)) |> Base.encode16, role: String.to_integer role})
     case Dashboard.Repo.insert(user) do
-      {:ok,_} -> conn |> put_flash(:info, "User inserted")
+      {:ok,_} -> IO.puts("ok")
+              conn |> put_flash(:info, "User inserted")
       #back is a conn, fwrd is a string
       {:error, cgst} -> cgst.errors |> Enum.reduce(conn, fn(now,back) -> back |> put_flash(:error,elem(now,0))  end)
-
-                        #|> Enum.map(fn(x) -> x end)
-      _ -> conn |> halt()
+      _ -> IO.puts("halting")
+        conn |> halt()
     end
+    conn
     |>
     redirect(to: "/admin/users")
   end
@@ -43,5 +44,13 @@ defmodule DashboardWeb.AdminController do
 		import Ecto.Query
 		render conn, "modify_user.html"#, changeset: Dashboard.User.changeset(%Dashboard.User{},%{})
 	end
+
+  def sensor(conn, _params) do
+    render conn, "sensor.html"
+  end
+
+  def new_sensor_get(conn, params) do
+    render conn, "new_sensor.html", changeset: Dashboard.Sensor.Meta.changeset(%Dashboard.Sensor.Meta{},%{})
+  end
 
 end

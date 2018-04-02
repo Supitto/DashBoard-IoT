@@ -27,18 +27,16 @@ defmodule DashboardWeb.Router do
 
     get "/", DashboardController, :index
     get "/sensor", DashboardController, :sensor
-    get "/sensor/especifico", DashboardController, :sensor_especifico
+    get "/sensor/:idphx", DashboardController, :sensor_especifico
     get "/logout", DashboardController, :logout
   end
 
   scope "/admin", DashboardWeb do
     pipe_through :browser
 
-    get "/users", AdminController, :users
-    get "/users/new", AdminController, :new_user_get
-    post "/users/new", AdminController, :new_user_post
-    get "/users/modify", AdminController, :modify_user_get
-		post "/users/modify", AdminController, :modify_user_post
+    resources "/user", Admin.UserController
+    resources "/sensor", Admin.SensorController
+    
   end
 
   # Other scopes may use custom stacks.

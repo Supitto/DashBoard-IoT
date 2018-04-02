@@ -7,7 +7,7 @@ defmodule Dashboard.Sensor.Meta do
     field :local, :string
     field :manufacturer, :string
     field :name, :string
-    field :purpouse, :string
+    field :purpose, :string
     field :status, :integer
 
     timestamps()
@@ -16,7 +16,7 @@ defmodule Dashboard.Sensor.Meta do
   @doc false
   def changeset(meta, attrs) do
     meta
-    |> cast(attrs, [:name, :local, :purpouse, :manufacturer, :status])
-    |> validate_required([:name, :local, :purpouse, :manufacturer, :status])
+    |> cast(attrs, [:name, :local, :purpose, :manufacturer, :status])
+    |> validate_required([:name, :local, :purpose, :manufacturer, :status])
   end
 end

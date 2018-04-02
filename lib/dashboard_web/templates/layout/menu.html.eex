@@ -93,12 +93,12 @@
           </a>
           <ul class="children collapse" id="sub-item-1">
           <li>
-            <a class="" href="/admin/users">
+            <a class="" href="<%= user_path(@conn, :index) %>">
               <span class="fa fa-arrow-right">&nbsp;</span> Usuarios
             </a>
           </li>
           <li>
-            <a class="" href="#">
+            <a class="" href="/admin/sensor">
               <span class="fa fa-arrow-right">&nbsp;</span> Sensores
             </a>
           </li>
@@ -120,10 +120,21 @@
           </a>
         </li>
       </ul>
+    <div class=row>
+      <div class="col-sm-12">
+        <p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
+      </div>
+    </div>
+    <div class=row>
+      <div class="col-sm-12">
+        <p class="back-link">Made with ❤️️ by <a href="https://www.github.com/supitto">Supitto</a></p>
+      </div>
+    </div>
     </div><!--/.sidebar-->
-      <p class="alert alert-info" style="float:left" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" style="float:left" role="alert"><%= get_flash(@conn, :error) %></p>
+      
     <%= render @view_module, @view_template, assigns %>
+    <p class="alert alert-info" style="float:left" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" style="float:left" role="alert"><%= get_flash(@conn, :error) %></p>
     <script src="<%= static_path(@conn, "/js/jquery-1.11.1.min.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/bootstrap.min.js") %>"></script>
   </body>
