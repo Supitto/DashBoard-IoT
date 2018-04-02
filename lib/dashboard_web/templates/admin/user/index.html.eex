@@ -30,23 +30,25 @@
 							</span>
 						</div>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body chat-body">
 						<ul>
-							<%= for user <- @users do %>
 
-							<li class="right clearfix">
+							<%= for user <- @users do %>
+							<%= case user.active do %>
+							<% true -> %>
+							<li class="right clearfix bg-success">
+							<% false -> %>
+							<li class="right clearfix bg-light">
+							<% end %>
 								<span class="pull-right row"></span>
 								<div class="chat-body clearfix">
-								<div class="header">
-									<strong class="primary-font">Usuario</strong>
-								</div>
 									<p class ="col-xs-2" >Email : </p>
 									<p class="col-xs-4"><%= user.email %></p>
 									<%= case user.active do %>
 									<% true -> %>
-										<a class="col-xs-2 col-xs-offset-1 btn btn-primary">Desativar</a>
+										<a class="bg-success col-xs-2 col-xs-offset-1 btn btn-primary">Desativar</a>
 									<% false -> %>
-										<a class="col-xs-2 col-xs-offset-1 btn btn-primary">Ativar</a>
+										<a class="bg-danger col-xs-2 col-xs-offset-1 btn btn-primary">Ativar</a>
 									<% end %>
 									<a href="<%= user_path(@conn, :show, user.id) %>" class="col-xs-offset-1 col-xs-2 btn btn-primary">Alterar</a>
 								</div>
